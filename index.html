@@ -59,9 +59,8 @@
 }
 
 /* Refined motion layer - integrated, no external libraries */
-@media (prefers-reduced-motion: no-preference){
-.motion-reveal{opacity:0;transform:translateY(16px);transition:opacity .62s cubic-bezier(.22,.61,.36,1),transform .62s cubic-bezier(.22,.61,.36,1);transition-delay:var(--motion-delay,0ms)}
-.motion-reveal.motion-visible{opacity:1;transform:none}
+.motion-reveal{opacity:0;transform:translateY(32px) scale(.985);filter:blur(3px);transition:opacity .72s cubic-bezier(.22,.61,.36,1),transform .72s cubic-bezier(.22,.61,.36,1),filter .72s ease;transition-delay:var(--motion-delay,0ms)}
+.motion-reveal.motion-visible{opacity:1;transform:none;filter:blur(0)}
 .career,.app,.stage button,.domain,.edu-card,.edu-pillar,.ev-unit,.thesis,.loop-node,.bullet,.flow-node,.vpoint{transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease,background-color .25s ease}
 .career:hover,.app:hover,.edu-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.16)}
 .edu-pillar:hover,.ev-unit:hover,.bullet:hover,.vpoint:hover{transform:translateY(-2px);border-color:#3b5364}
@@ -71,7 +70,6 @@
 @keyframes energyPulse{0%,100%{opacity:.4}50%{opacity:1;text-shadow:0 0 10px rgba(97,226,193,.35)}}
 @keyframes loopPulse{0%,100%{opacity:.4;transform:translateY(-50%) scale(.9)}50%{opacity:1;transform:translateY(-50%) scale(1.12)}}
 @media(max-width:850px){.control-loop .loop-node.motion-visible:not(:last-child):after{animation:loopPulseMobile 1.65s ease-in-out .35s 2}@keyframes loopPulseMobile{0%,100%{opacity:.4;transform:translateX(-50%) scale(.9)}50%{opacity:1;transform:translateX(-50%) scale(1.12)}}}
-}
 @media (prefers-reduced-motion: reduce){.motion-reveal{opacity:1!important;transform:none!important;transition:none!important}.ev-arrow{animation:none!important}}
 </style></head><body><nav><div class="wrap nav"><a class="brand" href="#top">DAVI ARAÚJO <span class="brand-sep">·</span> <span class="brand-sub">PROFESSIONAL PORTFOLIO</span></a><div class="links"><a href="#career">Career</a><a href="#applications">Applications</a><a href="#cycle">Development</a><a href="#domains">Expertise</a><a href="#education">Education</a><a href="#contact">Contact</a><div class="lang-toggle" aria-label="Language" role="button" tabindex="0" title="Switch language"><button class="lang-btn active" data-lang="en">EN</button><button class="lang-btn" data-lang="pt">PT</button></div></div></div></nav><main id="top">
 <section class="hero"><div class="wrap hero-grid"><div><span class="ey">Automotive controls engineering</span><h1>From physical systems to production control software.</h1><p class="lead">Mechanical engineer and technical leader specializing in combustion, engine torque and exhaust aftertreatment controls across conventional and hybrid propulsion systems.</p><div class="chips"><span class="chip">Model-Based Design</span><span class="chip">Combustion Controls</span><span class="chip">Aftertreatment</span><span class="chip">AUTOSAR</span><span class="chip">Technical Leadership</span></div><div class="contacts"><a class="contact primary" href="mailto:daviaraujo.contact@gmail.com">Email me</a><a class="contact" href="https://www.linkedin.com/in/davi-c-araujo/" target="_blank">LinkedIn ↗</a><a class="contact" href="Davi_Araujo_Resume.pdf" target="_blank">Résumé ↗</a></div></div><img class="portrait" src="fotodavi.jpg" alt="Professional portrait"></div></section>
@@ -142,5 +140,5 @@ const savedLang='en';localStorage.setItem('portfolioLang','en');setTimeout(()=>t
 const motionSelectors='section h2, section .ey, section > .wrap > .lead, .career, .quote, .app, .stage, .vdetail, .domain, .explorer, .edu-card, .edu-pillar, .ev-unit, .thesis, .loop-node, .contact-section .contacts';
 const motionItems=[...document.querySelectorAll(motionSelectors)];
 motionItems.forEach(el=>{el.classList.add('motion-reveal');const siblings=el.parentElement?[...el.parentElement.children]:[];const n=Math.max(0,siblings.indexOf(el));el.style.setProperty('--motion-delay',Math.min(n*55,220)+'ms');});
-if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('motion-visible');observer.unobserve(entry.target);}});},{threshold:.1,rootMargin:'0px 0px -6% 0px'});motionItems.forEach(el=>observer.observe(el));}else{motionItems.forEach(el=>el.classList.add('motion-visible'));}
+if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('motion-visible');observer.unobserve(entry.target);}});},{threshold:.08,rootMargin:'0px 0px -12% 0px'});motionItems.forEach(el=>observer.observe(el));}else{motionItems.forEach(el=>el.classList.add('motion-visible'));}
 </script></body></html>
